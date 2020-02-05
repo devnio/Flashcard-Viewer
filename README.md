@@ -12,7 +12,7 @@ Idea
 ====
 -  Finds all the pdfs in the main directory (a bit messy, need change)
 -  Can load one pdf in the dropdown menu 
--  Create images for each page of the pdf and divides the image in 2 (done only once)
+-  Creates images for each page of the pdf and divides the image in 2 (done only once)
    -  The left half of the page is the question
    -  The right half is the answer
 -  (conversion is pretty slow, so it might take some minutes if there are a lot of flashcards)
@@ -30,13 +30,13 @@ Dependencies
 
 ERRORS
 ====
-ERROR I had on Windows 10 after installing all libraries above.
+An error I had on Windows 10 after installing all libraries above.
 - if you get this error : wand.exceptions.DelegateError: FailedToExecuteCommand `"gswin32c.exe" when you run the main.py script,
 then you probably need to install ghostscript (https://www.ghostscript.com/download/gsdnld.html).
 I found the solution here (https://stackoverflow.com/questions/32466112/imagemagick-convert-pdf-to-jpeg-failedtoexecutecommand-gswin32c-exe-pdfdel). This worked for me.
 
 - other errors can be caused by not having any pdf in the main directory (have to fix that)
-- also if something went wrong when converting the pdf into flashcards remember to always delete the generate directory (that will probably be empty), otherwise the program wont convert the pdf again.
+- also if something went wrong when converting the pdf into flashcards remember to always delete the generated directory (that will probably be empty), otherwise the program won't convert the pdf again.
 
 TODO
 ====
