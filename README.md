@@ -1,6 +1,7 @@
 # Flashcard-Viewer
 A flashcard viewer that takes as input a pdf file.
 
+![Screen](readme_material/screen_example.jpg)
 
 I wrote this without knowing any of the libraries (so its probably not optimal at all). 
 Improvised in an afternoon in order to visualize my iPad notes as flashcards. 
@@ -32,5 +33,3 @@ TODO
 - allow horizontal cuts
   - in case there are multiple flashcards on a page (e.g. 4 flashcards on an A4 page)
 
-
-![Screen](readme_material/screen_example.jpg)
