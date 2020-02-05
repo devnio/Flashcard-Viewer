@@ -19,7 +19,7 @@ Idea
 
 Dependencies
 ====
-- tkinter 
+- tkinter (`https://tkdocs.com/tutorial/install.html`)
 - PyPDF2 (`pip install PyPDF2`)
 - PIL (`pip install Pillow`)
 - wand (`pip install Wand`)
