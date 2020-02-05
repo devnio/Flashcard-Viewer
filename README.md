@@ -19,15 +19,27 @@ Idea
 
 Dependencies
 ====
-- tkinter
-- PyPDF2
-- PIL
-- wand.image
-- numpy
+- tkinter 
+- PyPDF2 (`pip install PyPDF2`)
+- PIL (`pip install Pillow`)
+- wand (`pip install Wand`)
+   - need also ImageMagick: http://docs.wand-py.org/en/latest/guide/install.html
+- numpy (`python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose`)
 
+
+ERRORS
+====
+ERROR I had on Windows 10 after installing all libraries above.
+- if you get this error : wand.exceptions.DelegateError: FailedToExecuteCommand `"gswin32c.exe" when you run the main.py script,
+then you probably need to install ghostscript (https://www.ghostscript.com/download/gsdnld.html).
+I found the solution here (https://stackoverflow.com/questions/32466112/imagemagick-convert-pdf-to-jpeg-failedtoexecutecommand-gswin32c-exe-pdfdel). This worked for me.
+
+- other errors can be caused by not having any pdf in the main directory (have to fix that)
+- also if something went wrong when converting the pdf into flashcards remember to always delete the generate directory (that will probably be empty), otherwise the program wont convert the pdf again.
 
 TODO
 ====
+- fix all the small details specified above 
 - find better way to convert pdf pages to images
 - have a parameter for setting the cut of the pdf (e.g instead of exact middle one can have [0,300] is question and [300,1000])
 - allow horizontal cuts
