@@ -2,8 +2,8 @@
 A flashcard viewer that takes as input a pdf file.
 
 
-I wrote this without knowing any of the libraries. 
-Improvised in an afternoon in order to visualize my iPad notes as flashcards.
+I wrote this without knowing any of the libraries (so its probably not optimal at all). 
+Improvised in an afternoon in order to visualize my iPad notes as flashcards. 
 I made this work using this [pdf template](readme_material/flashcard_h_temp.pdf).
 
 Idea
