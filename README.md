@@ -3,7 +3,7 @@ A flashcard viewer that takes as input a pdf file.
 
 ![Screen](readme_material/screen_example.jpg)
 
-I wrote this without using tkinter for the first time (so its probably not optimal at all). 
+I wrote this using tkinter for the first time (so its probably not optimal at all). 
 Improvised in an afternoon in order to visualize my iPad notes as flashcards. 
 I made this work using this [pdf template](readme_material/flashcard_h_temp.pdf).
 I tested it on my macOs Catalina and on Windows 10 (had an issue, see error section).
