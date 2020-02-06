@@ -12,9 +12,11 @@ class Scene:
 
         self.popupMenu = None
         self.tkvar_deck = tk.StringVar(self._root)
-        self.pdfs_list = []
+        self.pdfs_found = False
+        self.pdfs_list = ["No pdf file found. Load one inside the main directory."]
         self._find_pdfs()
         self.tkvar_deck.set(self.pdfs_list[0])
+
         self._setup_drop_down_menu()
 
         self.show_answer = False
@@ -28,8 +30,11 @@ class Scene:
         self.randomize_order_BT = None
         self._setup_buttons()
         
-
     def load_flashcards(self):
+        if not self.pdfs_found:
+            print("Need some pdfs first. Place a pdf in the same directory as the main script.")
+            return 
+
         flashcards = Flashcards(resolution=350)
         flashcards.load_pdf(self.tkvar_deck.get())
         flashcards.start()
@@ -37,16 +42,25 @@ class Scene:
         self.load_current_flashcard()
 
     def randomize_order(self):
+        if self.flashcards is None:
+            self.load_flashcards()
+            return
+            
         self.flashcards.randomize_order()
 
     def _find_pdfs(self):
         for filename in os.listdir("."):
             if filename.endswith(".pdf"):
+                if (self.pdfs_found == False):
+                    self.pdfs_list = []
+                    self.pdfs_found = True
+
                 self.pdfs_list.append(filename)
 
     def next_cards(self):        
         if self.flashcards is None:
             self.load_flashcards()
+            return
         
         self.show_answer = False
         self.flashcards.load_next_card()
@@ -63,6 +77,10 @@ class Scene:
         self._show_img(self.imgQ)
 
     def turn_card(self):
+        if self.flashcards is None:
+            self.load_flashcards()
+            return            
+
         img = self.imgA
         self.show_answer = not self.show_answer
         
@@ -85,7 +103,7 @@ class Scene:
         self.randomize_order_BT = tk.Button(self._root, text='randomize', command=self.randomize_order)
         self.randomize_order_BT.pack()
 
-        self.next_BT = tk.Button(self._root, text='next', command=self.next_cards)
+        self.next_BT = tk.Button(self._root, text='next card', command=self.next_cards)
         self.next_BT.pack()
 
         self.turn_BT = tk.Button(self._root, text='turn card', command=self.turn_card)

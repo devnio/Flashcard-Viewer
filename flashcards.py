@@ -51,6 +51,13 @@ class Flashcards():
         else: 
             print("No more flashcards")
 
+    def load_prev_card(self):
+        if self.idx > 0:
+            self.idx = self.idx - 1
+            self._set_current_img()
+        else: 
+            print("Can't go back anymore")
+
     def randomize_order(self):
         self.idx = 0
         arr = np.random.permutation(self.cards_order)
