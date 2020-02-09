@@ -24,6 +24,7 @@ class Scene:
         self.imgQ = None
         self.label = None
 
+        self.prev_BT = None
         self.next_BT = None
         self.turn_BT = None
         self.load_pdf_BT = None
@@ -66,6 +67,15 @@ class Scene:
         self.flashcards.load_next_card()
         self.load_current_flashcard()
 
+    def prev_cards(self):        
+        if self.flashcards is None:
+            self.load_flashcards()
+            return
+        
+        self.show_answer = False
+        self.flashcards.load_prev_card()
+        self.load_current_flashcard()
+
     def load_current_flashcard(self):
         self.imgQ = ImageTk.PhotoImage(self.flashcards.current_question_img)
         self.imgA = ImageTk.PhotoImage(self.flashcards.current_answer_img)
@@ -102,6 +112,9 @@ class Scene:
 
         self.randomize_order_BT = tk.Button(self._root, text='randomize', command=self.randomize_order)
         self.randomize_order_BT.pack()
+
+        self.prev_BT = tk.Button(self._root, text='prev card', command=self.prev_cards)
+        self.prev_BT.pack()
 
         self.next_BT = tk.Button(self._root, text='next card', command=self.next_cards)
         self.next_BT.pack()
