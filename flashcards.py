@@ -4,7 +4,7 @@ import copy
 import numpy as np
 import PyPDF2
 from wand.image import Image
-from PIL import ImageTk
+from PIL import ImageTk, ImageDraw, ImageFont
 from PIL import Image as PILImage
 
 class Flashcards():
@@ -107,6 +107,13 @@ class Flashcards():
 
         self.current_answer_img = self._convert_wand_to_pil(self.current_answer_img)
         self.current_question_img = self._convert_wand_to_pil(self.current_question_img)
+
+        self._add_page_nr(idx)
+    
+    def _add_page_nr(self, idx):
+        draw_img = ImageDraw.Draw(self.current_question_img)
+        font = ImageFont.truetype("fonts/arial.ttf", 20)
+        draw_img.text((0, 0), str(idx + 1), (255,255,255), font=font)
         
 
     def _pdf_page_to_png(self, pagenum = 0, resolution = 72):
